@@ -49,7 +49,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button type="button" class="but-title">Заказать услугу</button>
+                <button data-modal-open type="button" class="but-title">Заказать услугу</button>
             </div>
         </section>
         <!--Особенности-->
@@ -101,9 +101,9 @@
             <div class="container">
                 <h2 class="features-inner-title">Чем мы занимаемся</h2>
                 <ul class="features-inner-list">
-                    <li class="features-inner-item"><img src="./images/image1.jpg" width="370" alt="Стол с мониторами и клавиатурой"></li>
-                    <li class="features-inner-item"><img src="./images/image2.jpg" width="370" alt="Человек за ноутбуком с телефоном"></li>
-                    <li class="features-inner-item"><img src="./images/image3.jpg" width="370" alt="Планшет с графиеским редактором в руке"></li>
+                    <li class="features-inner-item desktop"><img src="./images/image1.jpg" width="370" alt="Стол с мониторами и клавиатурой"></li>
+                    <li class="features-inner-item mobile"><img src="./images/image2.jpg" width="370" alt="Человек за ноутбуком с телефоном"></li>
+                    <li class="features-inner-item design"><img src="./images/image3.jpg" width="370" alt="Планшет с графиеским редактором в руке"></li>
                 </ul>
             </div>
         </section>
@@ -360,5 +360,15 @@
             </div>
         </div>    
     </footer>
+    <div data-modal class="backdrop is-hidden">
+        <div class="modal">
+            <button data-modal-close class="close">
+                <svg class="icon-close">
+                    <use href="./images/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="./js/modal.js"></script>
 </body>
 </html>

@@ -85,6 +85,10 @@ h2 {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item-nav:not(:last-child) {
@@ -92,7 +96,22 @@ h2 {
 }
 
 .current {
+    position: relative;
+    display: flex;
+
     color: var(--accent-color);
+}
+
+.current::after {
+    position: absolute;
+    bottom: 0;
+
+    height: 4px;
+    width: 100%;
+
+    content: "";
+    background: var(--accent-color);
+    border-radius: 2px;
 }
 
 .contacts {
@@ -118,8 +137,9 @@ h2 {
     margin-right: 10px;
 }
 
-.link:hover > .icon-contacts {
-    fill: #2196F3;
+.link:hover > .icon-contacts,
+.link:focus > .icon-contacts {
+    fill: var(--accent-color);
 }
 
 .contact-mail, .contact-tel {
@@ -134,13 +154,14 @@ h2 {
     color: var(--secondary-text-color);
     padding-top: 32px;
     padding-bottom: 32px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
-.link:hover {
-    color: var(--accent-color);
-}
-
+.link:hover,
 .link:focus {
     color: var(--accent-color);
 }
@@ -187,12 +208,13 @@ h2 {
     height: 50px;
     cursor: pointer;
     border: 0;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.but-title:hover {
-    background-color: #188CE8;
-}
-
+.but-title:hover,
 .but-title:focus {
     background-color: #188CE8;
 }
@@ -279,6 +301,42 @@ h2 {
     margin-right: 30px;
 }
 
+.features-inner-item {
+    position: relative;
+}
+
+.features-inner-item::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;  
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(47, 48, 58, 0.8);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.desktop::after {
+    content: "Десктопные приложения";
+}
+
+.mobile::after {
+    content: "Мобильные приложения";
+}
+
+.design::after {
+    content: "Дизайнерские решения";
+}
+
 /*team*/
 
 .team {
@@ -342,6 +400,11 @@ h2 {
     align-items: center;
     width: 44px;
     height: 44px;
+    border-radius: 50%;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-networks {
@@ -359,6 +422,10 @@ h2 {
     width: 20px;
     height: 20px;
     fill: #AFB1B8;
+
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -395,6 +462,10 @@ h2 {
     height: 92px;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
+
+    transition-property: border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -406,10 +477,15 @@ h2 {
 .logo-client {
     height: 60px;
     width: 106px;
-   fill: #AFB1B8;
+    fill: #AFB1B8;
+
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo-client:hover {
+.logo-client:hover,
+.logo-client:focus {
     fill: #2196F3;
 }
 
@@ -458,6 +534,10 @@ address {
     line-height: 1.71;   
     letter-spacing: 0.03em;   
     color: rgba(255, 255, 255, 0.6);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* footer-social-network */
@@ -501,6 +581,10 @@ address {
     
     height: 44px;
     width: 44px;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link:hover,
@@ -514,6 +598,56 @@ address {
     fill: #ffffff;
 }
 
+/* backdrop */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    width: 528px;
+    height: 581px;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50% ,-50%);
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.icon-close {
+    height: 11px;
+    width: 11px;
+}
 /* portfolio*/
 
 /*portfolio main*/
@@ -541,6 +675,10 @@ address {
     cursor: pointer;
     
     padding: 6px 22px;
+
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-item:not(:last-child) {
@@ -581,9 +719,50 @@ address {
     padding-left: 0px;
 }
 
+.portfolio-item {
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .portfolio-item:hover {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
     cursor: pointer;
+}
+
+.portfolio-item:hover .description {
+    transform: translateY(-100%);
+}
+
+.thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.thumb > img {
+    display: block;
+}
+
+.description {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    height: 100%;
+    margin: 0px;
+    padding: 63px 24px;
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    background: rgba(33, 150, 243, 0.9);
+
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item > .wrapper {
